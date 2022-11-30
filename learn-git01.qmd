@@ -1,0 +1,32 @@
+---
+title: "learn GIt"
+format: html
+editor: visual
+---
+
+1.Data
+
+```{r}
+library(haven)
+adae <- read_sas("https://github.com/elong0527/r4csr/raw/master/data-adam/adae.sas7bdat", 
+    NULL)
+adae
+
+```
+
+2.Viz
+
+```{r}
+library(ggplot2)
+library(plotly)
+dv1<-ggplot(adae) +
+  aes(x = AESEV, y = AGE, fill = SEX) +
+  geom_col() +
+  scale_fill_hue(direction = 1) +
+  theme_minimal()
+
+ggplotly(dv1)
+
+```
+
+3.Interactive
